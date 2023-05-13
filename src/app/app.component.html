@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <title>CALORIE TRACKER</title>
+  </head>
+  <body>
+    <div class="container-fluid bg-dark text-light py-1">
+      <header class="text-center" id="headerContainer">
+        <h1 class="display-6">CALORIE TRACKER</h1>
+      </header>
+    </div>
+    <br /><br />
+    <div class="container-fluid" style="padding-left: 40px">
+      <div class="row row-cols-3">
+        <div class="col">
+          <div class="input-group" style="width: 300px">
+            <input
+              type="search"
+              #search
+              (keyup)="onKey1(search.value)"
+              class="form-control rounded"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="search-addon"
+              id="searchBox"
+            />
+          </div>
+        </div>
+
+        <div class="col" style="padding-left: 90px">
+          <button type="button" class="btn btn-primary btn-lg" id="newFood">
+            ADD NEW FOOD
+          </button>
+        </div>
+        <div class="col">
+          <div class="container" style="padding-left: 40px" id="totalCalories">
+            Today's Food {{ total }}
+          </div>
+          <div class="container-fluid" *ngFor="let tod of today">
+            <li>{{ tod.name }} {{ tod.calories }} x {{ tod.qty }}</li>
+          </div>
+        </div>
+        <div class="col">
+          <div class="container" id="displayContainer">
+            <div class="row row-cols-1">
+              <div class="col" *ngFor="let card of cards">
+                <div
+                  class="card"
+                  *ngIf="
+                    searchText === '' ||
+                    card.name.toLowerCase().includes(searchText)
+                  "
+                >
+                  <img
+                    class="card-img-top"
+                    src="{{ card.image }}"
+                    alt="Image"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      FOOD NAME : {{ card.name }} <br />
+                      CALORIE : {{ card.calories }}
+                    </p>
+                    <input
+                      type="text"
+                      #qty
+                      (keyup)="onKey(qty.value)"
+                      style="width: 165px"
+                    />
+                    <button
+                      class="btn btn-primary"
+                      (click)="addFoodCard(card.name, card.calories)"
+                    >
+                      ADD
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <form #f="ngForm" (ngSubmit)="data(f)">
+            <br />
+            <div class="form-group row">
+              <label for="Name" class="col-sm-2 col-form-label">NAME</label>
+              <div class="col-sm-5">
+                <input
+                  type="text"
+                  required
+                  ngModel
+                  name="name"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="form-group row">
+              <label for="calories" class="col-sm-2 col-form-label"
+                >CALORIES</label
+              >
+              <div class="col-sm-5">
+                <input
+                  type="integer"
+                  required
+                  ngModel
+                  name="calories"
+                  name="calories"
+                  class="form-control"
+                  id="calories"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="form-group row">
+              <label for="image" class="col-sm-2 col-form-label">IMAGE</label>
+              <div class="col-sm-5">
+                <input
+                  type="URL"
+                  required
+                  ngModel
+                  name="image"
+                  name="image"
+                  class="form-control"
+                  id="image"
+                />
+              </div>
+            </div>
+            <br /><br />
+            <button class="btn btn-primary">ADD</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
