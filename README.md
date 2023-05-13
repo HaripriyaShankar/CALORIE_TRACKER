@@ -1,27 +1,16 @@
-# CalorieTracker
+# Railway Reservation System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### This project is a simple calorie tracker where the daily calorie intake can be followed.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Description
+The user can add new food by providing the name, calorie per intake and image of the food. After which the quantity can be provided. So based on the calorie and quantity the today's calorie chart is displayed(sum of (calorie * quantity)). Additionally the user can also search through the food name or calorie for tracking the intake.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+![image](https://github.com/HaripriyaShankar/CALORIE_TRACKER/assets/113589580/7b159a9b-ba44-4254-a30b-512ad6c7aefa)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![image](https://github.com/HaripriyaShankar/CALORIE_TRACKER/assets/113589580/853bae34-d43a-4650-9d9e-f4de1b60257c)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
